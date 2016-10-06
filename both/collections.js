@@ -1,0 +1,1 @@
+CaptureData = new Mongo.Collection("capturedata")

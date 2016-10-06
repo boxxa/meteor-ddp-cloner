@@ -1,0 +1,43 @@
+
+<template name="captureTemplate">
+    <div class="container-fluid table-striped text-center">
+        <div class="col-md-12">
+            <div class="row">
+                <h5><strong>Your Fingerprint:</strong> {{fingerprintData}}</h5>
+            </div>
+            <div class="row">
+                {{>collectionData}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="collectionData">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Client Fingerprint</th>
+                <th>Remote Collection</th>
+                <th>Remote Documents</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{#each captureData}}
+            <tr>
+                <td>{{timestamp}}</td>
+                <td>{{fingerprint}}</td>
+                <td>{{collectionName}}</td>
+                <td>
+                    {{#each item in collectionFields}}
+                        {{#each keyval item}}
+                            <strong>{{key}}:</strong>  {{value}} <br>
+                        {{/each}}
+                        <hr>
+                    {{/each}}
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>
